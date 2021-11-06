@@ -96,6 +96,9 @@
                         <div class="navbar">
                             <a href="{{ url('/home') }}">Home</a>
                             <a href="#products">Products</a>
+                            @if(Auth::user()->role=='admin')
+                                <a href="{{ url('/manage') }}">Options</a><
+                            @endif
 
                             <div class="dropdown">
                                 <button class="dropbtn"> {{ Auth::user()->name }}
