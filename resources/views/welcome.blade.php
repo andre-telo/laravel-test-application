@@ -97,7 +97,7 @@
                             <a href="{{ url('/home') }}">Home</a>
                             <a href="#products">Products</a>
                             @if(Auth::user()->role=='admin')
-                                <a href="{{ url('/manage') }}">Options</a><
+                                <a href="{{ url('/manage') }}">Manage</a><
                             @endif
 
                             <div class="dropdown">
