@@ -37,3 +37,4 @@ Route::get('/view_products={id}', 'App\Http\Controllers\ViewProductsController@i
 Route::get('/putonsell_product={id}', 'App\Http\Controllers\PutProductsOnSellController@index');
 Route::post('/putonsell_product={id}', 'App\Http\Controllers\PutProductsOnSellController@putonsale');
 
+Route::get('/view_products_on_sell', 'App\Http\Controllers\ViewProductsOnSellController@index');

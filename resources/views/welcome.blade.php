@@ -96,6 +96,7 @@
                         <div class="navbar">
                             <a href="{{ url('/home') }}">Home</a>
                             <a href="/view_products={{ Auth::user()->id }}">My Products</a>
+                            <a href="/view_products_on_sell">Products To Purchase</a>
                             @if(Auth::user()->role=='admin')
                                 <a href="{{ url('/manage') }}">Manage</a><
                             @endif
