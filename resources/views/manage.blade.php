@@ -27,7 +27,7 @@
                 <a href="/view_products={{$user->id}}">
                     <h3>View Products</h3>
                 </a>
-    </div>
+            </div>
 
         </div>
 

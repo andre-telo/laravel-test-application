@@ -95,7 +95,7 @@
                         <!-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> -->
                         <div class="navbar">
                             <a href="{{ url('/home') }}">Home</a>
-                            <a href="#products">Products</a>
+                            <a href="/view_products={{ Auth::user()->id }}">My Products</a>
                             @if(Auth::user()->role=='admin')
                                 <a href="{{ url('/manage') }}">Manage</a><
                             @endif

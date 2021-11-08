@@ -32,3 +32,5 @@ Route::get('/manage', 'App\Http\Controllers\ManageController@index');
 
 Route::get('/add_product={id}', 'App\Http\Controllers\AddProductController@index');
 Route::post('/add_product={id}', 'App\Http\Controllers\AddProductController@addProduct');
+
+Route::get('/view_products={id}', 'App\Http\Controllers\ViewProductsController@index');
