@@ -9,41 +9,44 @@ use Auth;
 use App\Models\User;
 use App\Models\Product;
 
-class AddProductController extends Controller
+class PutProductsOnSellController extends Controller
 {
     //Returns the view to add a product
     public function index($id){
         $current_user = Auth::user();
-        //Verifies that the user is an admin
-        if($current_user && $current_user->role  == "admin"){
-            $user = User::find($id);
+        //Verifies the user
+        $products = Product::where('products.id','=',$id)->get();
+        $product_user = Product::Select('user_id')->where('products.id','=',$id)->get();
+
+        
+
+        if($current_user->id == $product_user[0]->user_id){
+            //$user = User::find($product->'user_id');
             
             //verify if user exists
-            if($user){
-                return view('add_product', compact('user'));
+            if($products){
+                return view('PutProductsOnSell', compact('product_user', 'products'));
             
             }else{
-                //In case the user doesn't exist, redirect to users list page
-                return redirect('/manage');
+                //In case the user doesn't exist, redirect to main page
+                return redirect('/');
             }
 
         }else{
             //In case the user isn't an admin, redirect to login page
-            return redirect('/login');
+           return redirect('/login');
         }
     }
 
-    //add Product 
-    public function addProduct(Request $request, $id){
+    public function putonsale(Request $request, $id){
         $current_user = Auth::user();
-        if($current_user && $current_user->role  == "admin"){
-            $user = User::find($id);
+        if($current_user){
+            $product = Product::find($id);
             //Verifies that the user exists
-            if($user){
-                $product = new Product;
+            if($product){
                 //Update user
-                $product->name = $request->name;
-                $product->user_id = $id;
+                $product->price = $request->price;
+                $product->status = "on_sell";
                 $product->save();
 
                 return redirect('/manage');
@@ -56,6 +59,5 @@ class AddProductController extends Controller
             return redirect('/login');
         } 
     }
-
 
 }

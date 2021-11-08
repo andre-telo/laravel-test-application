@@ -27,10 +27,13 @@ Route::get('/manage', 'App\Http\Controllers\ManageController@index');
 
 
 //Add products routes
-//Route::get('/add_product', 'App\Http\Controllers\AddProductController@index');
-//Route::post('/add_product', 'App\Http\Controllers\AddProductController@add');
 
 Route::get('/add_product={id}', 'App\Http\Controllers\AddProductController@index');
 Route::post('/add_product={id}', 'App\Http\Controllers\AddProductController@addProduct');
 
 Route::get('/view_products={id}', 'App\Http\Controllers\ViewProductsController@index');
+
+
+Route::get('/putonsell_product={id}', 'App\Http\Controllers\PutProductsOnSellController@index');
+Route::post('/putonsell_product={id}', 'App\Http\Controllers\PutProductsOnSellController@putonsale');
+

@@ -3,13 +3,9 @@
 
 @section('content')
 <div class="mw6 center pa3 sans-serif">
-
-    <h1 class="mb4">{{ $user->name }}</h1>
-
-    
+    <h1> My Products </h1>
+   
     <div class="pa2 mb3 striped--near-white">
-
-        <header class="b mb2">Products:</header>
 
         <div class="pl2">
 
@@ -22,13 +18,31 @@
 
             @foreach($products as $product)
                 
-                <p class="mb2">{{ $product->name }}</p>
+                            
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header"> <h2>{{ $product->name }}</h2></div>
+                                    <div class="card-body">
+                                        Status: {{ $product->status }} <br>
+                                        Price: {{ $product->price }}
+                                        <a href="/putonsell_product={{$product->id}}">
+                                            <h5>Put Up For Sale</h5>
+                                        </a>
 
-            @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        @endif
+                @endforeach
 
-        </div>
+            @endif
+
+            </div>
 
     </div>
     
