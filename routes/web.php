@@ -38,3 +38,6 @@ Route::get('/putonsell_product={id}', 'App\Http\Controllers\PutProductsOnSellCon
 Route::post('/putonsell_product={id}', 'App\Http\Controllers\PutProductsOnSellController@putonsale');
 
 Route::get('/view_products_on_sell', 'App\Http\Controllers\ViewProductsOnSellController@index');
+
+Route::get('/purchase_product={id}', 'App\Http\Controllers\purchase_productController@index');
+Route::post('/purchase_product={id}', 'App\Http\Controllers\purchase_productController@purchaseProduct');
