@@ -41,3 +41,6 @@ Route::get('/view_products_on_sell', 'App\Http\Controllers\ViewProductsOnSellCon
 
 Route::get('/purchase_product={id}', 'App\Http\Controllers\purchase_productController@index');
 Route::post('/purchase_product={id}', 'App\Http\Controllers\purchase_productController@purchaseProduct');
+
+Route::get("/view_product_purchasers={id}",'App\Http\Controllers\View_Product_PurchasersController@index');
+Route::post("/view_product_purchasers={id}",'App\Http\Controllers\View_Product_PurchasersController@sell');

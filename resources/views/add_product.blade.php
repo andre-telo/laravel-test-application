@@ -4,13 +4,11 @@
 
 <script src="{{asset('js/product_validator.js')}}" defer></script>
 
-<h1 class="mb4">{{$user->name}}</h1>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Add New Product</div>
+                <div class="card-header">Add New Product to {{$user->name}}</div>
                 <div class="card-body">
                     <!-- Form to add a Product -->
                     <form id ="product_form" method ="post" action="" enctype="multipart/form-data">

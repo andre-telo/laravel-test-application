@@ -30,6 +30,9 @@
                                         <a href="/putonsell_product={{$product->id}}">
                                             <h5>Put Up For Sale</h5>
                                         </a>
+                                        <a href="/view_product_purchasers={{$product->id}}">
+                                            <h5>View Purchasers</h5>
+                                        </a>
 
                                     </div>
                                 </div>

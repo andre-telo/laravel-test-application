@@ -9,6 +9,9 @@ class Product extends Model{
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+    public function purchasers(){
+        return $this->hasMany('App\Models\Purchaser');
+    }
 
 
 }

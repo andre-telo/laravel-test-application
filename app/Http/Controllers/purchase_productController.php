@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Purchaser;
 
 class purchase_productController extends Controller
 {
@@ -41,13 +42,21 @@ class purchase_productController extends Controller
             $product = Product::find($id);
             //Verifies that the user exists
             if($product){
+                
+                //Create purchaser
+                $purchaser = new Purchaser;
+                
+                $purchaser->name = $current_user->name;
+                $purchaser->product_id = $id;
+                $purchaser->purchaser_id = $current_user->id;
 
-                //Update product
+                $purchaser->save();
+                /*Update product
                 $product->price = null;
                 $product->status = null;
                 $product->user_id = $current_user->id;
                 $product->save();
-
+                */
                 return redirect('/');
             }else{
                 //In case the user doesn't exist, redirect to users list page
