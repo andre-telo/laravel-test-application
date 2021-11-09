@@ -19,17 +19,17 @@ class purchase_productController extends Controller
         if($current_user){
             $product = Product::find($id);
             
-            //verify if user exists
+            //verify if product exists
             if($product){
                 return view('purchase_product', compact('current_user','product'));
             
             }else{
-                //In case the user doesn't exist, redirect to users list page
+                //In case the product doesn't exist, redirect to view products page
                 return redirect('/view_products_on_sell');
             }
 
         }else{
-            //In case the user isn't an admin, redirect to login page
+            //In case the user isn't logged, redirect to login page
             return redirect('/login');
         }
     }
@@ -40,7 +40,8 @@ class purchase_productController extends Controller
         if($current_user){
             //$user = User::find($id);
             $product = Product::find($id);
-            //Verifies that the user exists
+
+            //Verifies that the product exists
             if($product){
                 
                 //Create purchaser
@@ -51,19 +52,14 @@ class purchase_productController extends Controller
                 $purchaser->purchaser_id = $current_user->id;
 
                 $purchaser->save();
-                /*Update product
-                $product->price = null;
-                $product->status = null;
-                $product->user_id = $current_user->id;
-                $product->save();
-                */
+
                 return redirect('/');
             }else{
-                //In case the user doesn't exist, redirect to users list page
+                //In case the product doesn't exist, redirect to users list page
                 return redirect('/view_products_on_sell');
             }
         }else{
-            //In case the user isn't an admin, redirect to login page
+            //In case the user isn't logged, redirect to login page
             return redirect('/login');
         } 
     }
