@@ -11,7 +11,7 @@
 
         @if(count($purchasers) < 1)
             <div class="alert alert-warning">
-                <strong>No Product Found!</strong>
+                <strong>No Purchasers Found!</strong>
             </div>                                      
         @else
 
