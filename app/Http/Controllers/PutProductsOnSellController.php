@@ -13,8 +13,9 @@ class PutProductsOnSellController extends Controller
 {
     //Returns the view to add a product
     public function index($id){
-        $current_user = Auth::user();
         //Verifies the user
+        $current_user = Auth::user();
+        
         $products = Product::where('products.id','=',$id)->get();
         $product_user = Product::Select('user_id')->where('products.id','=',$id)->get();
 
@@ -22,8 +23,8 @@ class PutProductsOnSellController extends Controller
 
         if($current_user->id == $product_user[0]->user_id){
             //$user = User::find($product->'user_id');
+        
             
-            //verify if user exists
             if($products){
                 return view('PutProductsOnSell', compact('product_user', 'products'));
             
@@ -33,7 +34,7 @@ class PutProductsOnSellController extends Controller
             }
 
         }else{
-            //In case the user isn't an admin, redirect to login page
+            //In case the user isn't logged with the correct user, redirect to login page
            return redirect('/login');
         }
     }
